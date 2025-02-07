@@ -47,7 +47,7 @@
         <mockito.version>5.15.2</mockito.version>
         <tinylog.version>2.7.0</tinylog.version>
         <junit.version>5.11.4</junit.version>
-        <assertj.version>3.27.2</assertj.version>
+        <assertj.version>3.27.3</assertj.version>
     </properties>
 
     <profiles>
