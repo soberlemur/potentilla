@@ -5,17 +5,20 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /*
- * This file is part of the Choco Black PDF Tools project
  * Created on 07/02/25
  * Copyright 2025 by Sober Lemur S.r.l. (info@soberlemur.com).
  *
- * You are not permitted to distribute it in any form unless explicit
- * consent is given by Sober Lemur S.r.l.
- * You are not permitted to modify it.
+ * This copyrighted material is made available to anyone wishing to use, modify,
+ * copy, or redistribute it subject to the terms and conditions of the GNU
+ * Lesser General Public License, v. 2.1. This program is distributed in the
+ * hope that it will be useful, but WITHOUT A WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details. You should have received a
+ * copy of the GNU Lesser General Public License, v.2.1 along with this
+ * distribution; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  *
- * Choco Black PDF Tools is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * Author(s): Andrea Vacondio
  */
 
 class HeaderMessageTest {

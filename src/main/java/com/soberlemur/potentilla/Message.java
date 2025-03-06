@@ -43,10 +43,10 @@ public class Message {
     private String prevMsgid;
     private String prevMsgidPlural;
 
-    private Collection<String> comments = new ArrayList<>();
-    private Collection<String> extractedComments = new ArrayList<>();
-    private List<String> sourceRefs = new ArrayList<>();
-    private Set<String> formats = new LinkedHashSet<>();
+    private final Collection<String> comments = new ArrayList<>();
+    private final Collection<String> extractedComments = new ArrayList<>();
+    private final List<String> sourceRefs = new ArrayList<>();
+    private final Set<String> formats = new LinkedHashSet<>();
 
     private boolean obsolete;
 

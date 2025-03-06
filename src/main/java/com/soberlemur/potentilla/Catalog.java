@@ -95,6 +95,19 @@ public class Catalog implements Iterable<Message> {
         return messages.values().stream();
     }
 
+    public void updateFromTemplate(Catalog template) {
+        if (!this.template && template.template) {
+            //make obsolete what is not in the pot
+            this.messages.forEach((k,m)->{
+                if(!template.contains(k)) {
+                    m.markObsolete();
+                }
+            });
+            //add new entries from the pot
+            template.messages.forEach(this.messages::putIfAbsent);
+        }
+    }
+
     @Override
     public Iterator<Message> iterator() {
         return messages.values().iterator();
