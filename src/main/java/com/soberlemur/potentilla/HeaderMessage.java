@@ -90,7 +90,6 @@ public class HeaderMessage {
     public Message toMessage() {
         Message header = new Message();
         header.setMsgId("");
-        header.markFuzzy();
         header.setMsgstr(entries.entrySet().stream().map(e -> e.getKey() + ": " + e.getValue() + "\n").reduce("", String::concat));
         this.comments.forEach(header::addComment);
         return header;
@@ -111,6 +110,7 @@ public class HeaderMessage {
                 LOG.warn("Ignoring black header entry");
             }
         }
+        message.getComments().forEach(header::addComment);
         return header;
     }
 

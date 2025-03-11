@@ -47,6 +47,6 @@ class HeaderMessageTest {
         header.updateRevisionDate();
         var message = header.toMessage();
         assertEquals("", message.getMsgId());
-        assertEquals(1, message.getComments().size());
+        assertEquals(4, message.getComments().size());
     }
 }
