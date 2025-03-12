@@ -3,6 +3,8 @@ package com.soberlemur.potentilla;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /*
  * Created on 07/02/25
@@ -30,6 +32,8 @@ class HeaderMessageTest {
         assertEquals("http://bugs.kde.org", header.getValue(Header.REPORT_MSGID_BUGS_TO));
         assertEquals("PACKAGE VERSION", header.getValue(Header.PROJECT_ID_VERSION));
         assertEquals("LANGUAGE <kde-i18n-doc@kde.org>", header.getValue(Header.LANGUAGE_TEAM));
+        assertFalse(header.contains(Header.LANGUAGE));
+        assertTrue(header.contains(Header.CONTENT_TYPE));
     }
 
     @Test

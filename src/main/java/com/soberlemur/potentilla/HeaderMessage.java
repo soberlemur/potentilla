@@ -75,6 +75,10 @@ public class HeaderMessage {
         return entries.get(key);
     }
 
+    public boolean contains(Header header) {
+        return entries.containsKey(header.value());
+    }
+
     public Map<String, String> entries() {
         return Collections.unmodifiableMap(entries);
     }
