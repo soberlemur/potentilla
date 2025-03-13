@@ -20,6 +20,8 @@ import java.util.LinkedHashMap;
 import java.util.stream.Stream;
 
 import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+import static java.util.Objects.requireNonNull;
 
 /**
  * Models a catalog
@@ -27,7 +29,6 @@ import static java.util.Objects.isNull;
  * @author Steve Ebersole
  */
 public class Catalog implements Iterable<Message> {
-    // todo : segment by domain?
     private final LinkedHashMap<MessageKey, Message> messages = new LinkedHashMap<>();
     private HeaderMessage header;
 
@@ -53,11 +54,21 @@ public class Catalog implements Iterable<Message> {
     }
 
     public void add(Message message) {
+        requireNonNull(message, "Cannot insert a null message");
         if (isNull(header) && isNull(message.getMsgContext()) && "".equals(message.getMsgId())) {
             this.header = HeaderMessage.from(message);
         } else {
             messages.put(new MessageKey(message), message);
         }
+    }
+
+    /**
+     * Removes from the catalog the message with the given key
+     *
+     * @return true if the key is not null and a message was removed
+     */
+    public boolean remove(MessageKey key) {
+        return nonNull(key) && nonNull(messages.remove(key));
     }
 
     /**
@@ -98,8 +109,8 @@ public class Catalog implements Iterable<Message> {
     public void updateFromTemplate(Catalog template) {
         if (!this.template && template.template) {
             //make obsolete what is not in the pot
-            this.messages.forEach((k,m)->{
-                if(!template.contains(k)) {
+            this.messages.forEach((k, m) -> {
+                if (!template.contains(k)) {
                     m.markObsolete();
                 }
             });

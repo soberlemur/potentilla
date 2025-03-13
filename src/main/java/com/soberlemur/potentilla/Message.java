@@ -43,8 +43,8 @@ public class Message {
     private String prevMsgid;
     private String prevMsgidPlural;
 
-    private final Collection<String> comments = new ArrayList<>();
-    private final Collection<String> extractedComments = new ArrayList<>();
+    private final List<String> comments = new ArrayList<>();
+    private final List<String> extractedComments = new ArrayList<>();
     private final List<String> sourceRefs = new ArrayList<>();
     private final Set<String> formats = new LinkedHashSet<>();
 
@@ -177,15 +177,15 @@ public class Message {
         return sourceRefs;
     }
 
-    public Collection<String> getComments() {
+    public List<String> getComments() {
         return comments;
     }
 
-    public Collection<String> getExtractedComments() {
+    public List<String> getExtractedComments() {
         return extractedComments;
     }
 
-    public Collection<String> getFormats() {
+    public Set<String> getFormats() {
         return formats;
     }
 

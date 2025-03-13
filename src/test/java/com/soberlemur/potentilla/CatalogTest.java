@@ -2,7 +2,9 @@ package com.soberlemur.potentilla;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /*
@@ -83,6 +85,27 @@ class CatalogTest {
 
         assertFalse(msg.isObsolete());
         assertFalse(existingCatalog.contains(null, "id3"));
+    }
+
+    @Test
+    public void nullMessage() {
+        var catalog = new Catalog();
+        assertThrows(NullPointerException.class, () -> catalog.add(null));
+    }
+
+    @Test
+    public void removeNullMessage() {
+        var catalog = new Catalog();
+        var msg = new Message();
+        msg.setMsgId("id1");
+        msg.setMsgContext("context1");
+        msg.setMsgstr("translation");
+        catalog.add(msg);
+        assertFalse(catalog.remove(null));
+        assertFalse(catalog.remove(new MessageKey("Chuck", "Norris")));
+        assertTrue(catalog.remove(new MessageKey(msg)));
+        assertEquals(0, catalog.size());
+
     }
 
 }
