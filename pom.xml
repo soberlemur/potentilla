@@ -5,6 +5,7 @@
     <artifactId>potentilla</artifactId>
     <packaging>jar</packaging>
     <version>0.0.2-SNAPSHOT</version>
+    <url>https://github.com/soberlemur/potentilla</url>
 
     <name>Potentilla</name>
     <description>
