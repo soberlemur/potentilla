@@ -4,7 +4,7 @@
     <groupId>com.soberlemur</groupId>
     <artifactId>potentilla</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <url>https://github.com/soberlemur/potentilla</url>
 
     <name>Potentilla</name>
@@ -22,7 +22,7 @@
         <connection>scm:git:git@github.com:soberlemur/potentilla.git</connection>
         <developerConnection>scm:git:git@github.com:soberlemur/potentilla.git</developerConnection>
         <url>scm:git@github.com:soberlemur/potentilla.git</url>
-        <tag>HEAD</tag>
+        <tag>v0.0.2</tag>
     </scm>
 
     <developers>
