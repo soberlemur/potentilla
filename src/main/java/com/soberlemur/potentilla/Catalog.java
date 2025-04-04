@@ -37,14 +37,6 @@ public class Catalog implements Iterable<Message> {
      */
     private boolean template;
 
-    public Catalog(boolean template) {
-        this.template = template;
-    }
-
-    public Catalog() {
-        this(false);
-    }
-
     public void setTemplate(boolean template) {
         this.template = template;
     }
@@ -117,6 +109,24 @@ public class Catalog implements Iterable<Message> {
             //add new entries from the pot
             template.messages.forEach(this.messages::putIfAbsent);
         }
+    }
+
+    /**
+     * @return this instance with a default header added if not already there
+     */
+    public Catalog withDefaultHeader() {
+        if (isNull(header)) {
+            this.header = HeaderMessage.defaultHeader();
+        }
+        return this;
+    }
+
+    /**
+     * @return this instance with template set to true
+     */
+    public Catalog asTemplate() {
+        this.template = true;
+        return this;
     }
 
     @Override

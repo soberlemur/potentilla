@@ -41,7 +41,7 @@ class CatalogTest {
         existingCatalog.add(msg);
         existingCatalog.add(msg2);
 
-        var templateCatalog = new Catalog(true);
+        var templateCatalog = new Catalog().asTemplate();
         var tmsg2 = new Message();
         tmsg2.setMsgId("id2");
         tmsg2.setMsgContext("context2");
@@ -57,7 +57,7 @@ class CatalogTest {
     }
 
     @Test
-    void updateFromTemplate_noChangesIfTemplateFlagIsFalse() {
+    void updateFromTemplateNoChangesIfTemplateFlagIsFalse() {
         var existingCatalog = new Catalog();
         var msg = new Message();
         msg.setMsgId("id1");
@@ -72,7 +72,7 @@ class CatalogTest {
         existingCatalog.add(msg);
         existingCatalog.add(msg2);
 
-        var templateCatalog = new Catalog(false);
+        var templateCatalog = new Catalog();
         var tmsg2 = new Message();
         tmsg2.setMsgId("id2");
         tmsg2.setMsgContext("context2");

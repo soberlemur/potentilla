@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestPoWriter {
 
     private String serializeMsg(Message msg, boolean encodeTabs) throws IOException {
-        Catalog catalog = new Catalog(true);
+        Catalog catalog = new Catalog().asTemplate();
         catalog.add(msg);
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         new PoWriter().withTabsEncoding(encodeTabs).withCharset(StandardCharsets.UTF_8).write(catalog, bos);
